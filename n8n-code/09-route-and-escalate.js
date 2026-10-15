@@ -64,6 +64,6 @@ return {
     escalated,
     escalation_reasons: reasons,
     model: 'openai/gpt-oss-120b',
-    prompt_version: 'v1',
+    prompt_version: 'v2',
   },
 };
