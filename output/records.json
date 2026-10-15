@@ -1,0 +1,157 @@
+[
+  {
+    "id": "sample-1",
+    "received_at": "2026-10-15T19:44:43.189Z",
+    "source": "Email",
+    "raw_message": "Hi, I tried logging in this morning and keep getting a 403 error. My account is arcvault.io/user/jsmith. This started after your update last Tuesday.",
+    "category": "Bug Report",
+    "priority": "High",
+    "confidence": 0.94,
+    "runner_up_category": "Incident/Outage",
+    "rationale": "Login 403 for one account after update, not widespread.",
+    "core_issue": "User cannot log in due to 403 error after recent update.",
+    "identifiers": [
+      {
+        "type": "account",
+        "value": "arcvault.io/user/jsmith"
+      },
+      {
+        "type": "error_code",
+        "value": "403"
+      }
+    ],
+    "dropped_identifiers": [],
+    "urgency": {
+      "level": "high",
+      "evidence": "keep getting a 403 error"
+    },
+    "summary": "The user jsmith (account arcvault.io/user/jsmith) is unable to log in, receiving a 403 error after the update last Tuesday. This blocks access for the account. Engineering should investigate the login failure and restore access.",
+    "intended_queue": "Engineering",
+    "destination_queue": "Engineering",
+    "escalated": false,
+    "escalation_reasons": [],
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "v1"
+  },
+  {
+    "id": "sample-2",
+    "received_at": "2026-10-15T19:44:47.279Z",
+    "source": "Web Form",
+    "raw_message": "We'd love to see a bulk export feature for our audit logs. We're a compliance-heavy org and this would save us hours every month.",
+    "category": "Feature Request",
+    "priority": "Low",
+    "confidence": 0.94,
+    "runner_up_category": null,
+    "rationale": "Requests new bulk export feature, no issue reported.",
+    "core_issue": "Request for a bulk export feature for audit logs.",
+    "identifiers": [],
+    "dropped_identifiers": [],
+    "urgency": {
+      "level": "low",
+      "evidence": "save us hours every month"
+    },
+    "summary": "The customer, a compliance‑heavy organization, wants a bulk export capability for their audit logs to reduce manual effort. This is a feature request affecting their workflow. The product team should evaluate adding bulk export functionality.",
+    "intended_queue": "Product",
+    "destination_queue": "Product",
+    "escalated": false,
+    "escalation_reasons": [],
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "v1"
+  },
+  {
+    "id": "sample-3",
+    "received_at": "2026-10-15T19:44:53.257Z",
+    "source": "Support Portal",
+    "raw_message": "Invoice #8821 shows a charge of $1,240 but our contract rate is $980/month. Can someone look into this?",
+    "category": "Billing Issue",
+    "priority": "High",
+    "confidence": 0.94,
+    "runner_up_category": null,
+    "rationale": "Charge differs from contract rate, indicating billing discrepancy.",
+    "core_issue": "Invoice #8821 overcharges $1,240 instead of contract rate $980.",
+    "identifiers": [
+      {
+        "type": "invoice_number",
+        "value": "#8821"
+      },
+      {
+        "type": "amount",
+        "value": "$1,240"
+      },
+      {
+        "type": "amount",
+        "value": "$980"
+      }
+    ],
+    "dropped_identifiers": [],
+    "urgency": {
+      "level": "low",
+      "evidence": null
+    },
+    "summary": "The customer reports that invoice #8821 shows a charge of $1,240, which exceeds their contract rate of $980 per month. This billing discrepancy affects their account and needs investigation by the billing team.",
+    "intended_queue": "Billing",
+    "destination_queue": "Billing",
+    "escalated": false,
+    "escalation_reasons": [],
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "v1"
+  },
+  {
+    "id": "sample-4",
+    "received_at": "2026-10-15T19:44:58.887Z",
+    "source": "Email",
+    "raw_message": "I'm not sure if this is the right place to ask, but is there a way to set up SSO with Okta? We're evaluating switching our auth provider.",
+    "category": "Technical Question",
+    "priority": "Low",
+    "confidence": 0.88,
+    "runner_up_category": "Feature Request",
+    "rationale": "User asks how to set up SSO, a how‑to query.",
+    "core_issue": "Customer wants to know if SSO can be set up with Okta.",
+    "identifiers": [],
+    "dropped_identifiers": [],
+    "urgency": {
+      "level": "low",
+      "evidence": "evaluating switching our auth provider"
+    },
+    "summary": "The user is asking whether ArcVault supports SSO integration with Okta as they consider changing their authentication provider. No immediate service impact is indicated. The team should provide information on SSO capabilities and any required steps.",
+    "intended_queue": "IT/Security",
+    "destination_queue": "IT/Security",
+    "escalated": false,
+    "escalation_reasons": [],
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "v1"
+  },
+  {
+    "id": "sample-5",
+    "received_at": "2026-10-15T19:45:01.597Z",
+    "source": "Web Form",
+    "raw_message": "Your dashboard stopped loading for us around 2pm EST. Checked our end — it's definitely on yours. Multiple users affected.",
+    "category": "Incident/Outage",
+    "priority": "High",
+    "confidence": 0.95,
+    "runner_up_category": null,
+    "rationale": "Dashboard stopped loading for multiple users, indicating a service-wide issue",
+    "core_issue": "Dashboard stopped loading for the customer.",
+    "identifiers": [
+      {
+        "type": "other",
+        "value": "2pm EST"
+      }
+    ],
+    "dropped_identifiers": [],
+    "urgency": {
+      "level": "high",
+      "evidence": "Multiple users affected"
+    },
+    "summary": "The customer reports that their dashboard has been unresponsive since around 2pm EST, affecting multiple users. They have confirmed the issue is on our side. The team needs to investigate the outage and restore dashboard functionality promptly.",
+    "intended_queue": "Engineering",
+    "destination_queue": "Human Review",
+    "escalated": true,
+    "escalation_reasons": [
+      "incident/outage",
+      "keyword \"Multiple users\""
+    ],
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "v1"
+  }
+]
