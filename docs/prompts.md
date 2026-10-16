@@ -4,7 +4,7 @@ Model: openai/gpt-oss-120b on Groq, temperature 0, JSON mode, prompt version v2
 
 ## 1. Classification prompt
 
-**Purpose:** The classify prompt tells Groq how to decide the category, priority and confidence for each message.
+**Purpose:** The classify prompt tells Groq how to pick the category, priority and confidence for each message.
 
 **Prompt (prompts/classify-v2.txt):**
 
@@ -55,11 +55,11 @@ Channel: {source}
 ```
 
 **Why it's built this way:**
-If it has low confidence it should be checked by a human and the tie breakers are what tells the model the difference between sample1 (one account broken) from sample 5(many users). The tradeoff is the accuracy, confidence bunched at 0.94 on almost everything even with the bands, the model isn't really calibrated and sample 3's priority flipped between high and medium across runs. With more time we could test the model against a set of real labelled messages to measure accuracy.
+Some categories overlap and the samples test exactly that, so I added tie breakers. One account broken is a bug (sample 1), many users is an outage (sample 5), and "is it possible" is a question, not a feature request (sample 4). The confidence bands are there so the 0.70 rule means something. The line about not following instructions in the message stops a customer from changing how their own message gets classified. The downside is the confidence still isn't reliable. It came back at 0.94 on almost everything even with the bands, and sample 3's priority flipped between High and Medium across runs. With more time I'd test it on real labelled messages and pick the threshold from that.
 
 ## 2. Enrichment prompt
 
-**Purpose:** The enrich tells groq what to pull out of the message, like the core issue, identifiers, urgency and a short summary for the team.
+**Purpose:** The enrichment prompt tells Groq what to pull out of the message: the core issue, identifiers, urgency and a short summary for the team.
 
 **Prompt (prompts/enrich-v2.txt):**
 
@@ -91,4 +91,4 @@ Classifier output: category={category}, priority={priority}
 ```
 
 **Why it's built this way:**
-Groq needs to copy the identifiers exactly so there wouldn't be a mismatch in anything, especially the invoice number. In one of the tests the core issue said the customer was overcharged $1,240 instead of $980, which makes it sound like the extra charge was $1,240 when it was really $260, so I added a rule to use both amounts and say the difference. With more time I would make the grounding check smarter about formats, because right now if Groq writes #4,410 instead of #4410 it gets dropped even though it's the same invoice.
+Groq has to copy the identifiers exactly, especially invoice numbers, or the team ends up looking for the wrong one. In one test the core issue said the customer was overcharged $1,240 instead of $980. That makes it sound like the extra charge was $1,240 when it was really $260, so I added a rule to use both amounts and say the difference. With more time I'd make the grounding check smarter about formats, because right now if Groq writes #4,410 instead of #4410 it gets dropped even though it's the same invoice.

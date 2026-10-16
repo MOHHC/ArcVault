@@ -1,14 +1,14 @@
 [
   {
     "id": "sample-1",
-    "received_at": "2026-10-15T21:14:12.564Z",
+    "received_at": "2026-10-16T09:00:56.810Z",
     "source": "Email",
     "raw_message": "Hi, I tried logging in this morning and keep getting a 403 error. My account is arcvault.io/user/jsmith. This started after your update last Tuesday.",
     "category": "Bug Report",
     "priority": "High",
-    "confidence": 0.95,
+    "confidence": 0.94,
     "runner_up_category": null,
-    "rationale": "403 login error for a single account after update, not widespread.",
+    "rationale": "Login 403 for a single account after update, not widespread.",
     "core_issue": "User receives a 403 error when trying to log in.",
     "identifiers": [
       {
@@ -25,7 +25,7 @@
       "level": "high",
       "evidence": "keep getting a 403 error"
     },
-    "summary": "The customer reports that login attempts for account arcvault.io/user/jsmith now return a 403 error, beginning after the recent update. This blocks access for the user. Engineering needs to investigate the authentication failure and resolve it promptly.",
+    "summary": "The customer cannot log in, receiving a 403 error after the recent update. The affected account is arcvault.io/user/jsmith. Engineering needs to investigate the authentication failure.",
     "intended_queue": "Engineering",
     "destination_queue": "Engineering",
     "escalated": false,
@@ -35,7 +35,7 @@
   },
   {
     "id": "sample-2",
-    "received_at": "2026-10-15T21:14:15.228Z",
+    "received_at": "2026-10-16T09:01:01.055Z",
     "source": "Web Form",
     "raw_message": "We'd love to see a bulk export feature for our audit logs. We're a compliance-heavy org and this would save us hours every month.",
     "category": "Feature Request",
@@ -50,7 +50,7 @@
       "level": "low",
       "evidence": "save us hours every month"
     },
-    "summary": "The customer, a compliance‑heavy organization, wants the ability to bulk export audit logs. This feature would save them hours each month. It's a low‑urgency feature request for the product team.",
+    "summary": "The customer, a compliance‑heavy organization, wants the ability to bulk export audit logs. This feature would save them hours each month. Product team should consider adding a bulk export option to the audit log functionality.",
     "intended_queue": "Product",
     "destination_queue": "Product",
     "escalated": false,
@@ -60,15 +60,15 @@
   },
   {
     "id": "sample-3",
-    "received_at": "2026-10-15T21:14:18.218Z",
+    "received_at": "2026-10-16T09:01:06.714Z",
     "source": "Support Portal",
     "raw_message": "Invoice #8821 shows a charge of $1,240 but our contract rate is $980/month. Can someone look into this?",
     "category": "Billing Issue",
     "priority": "Medium",
     "confidence": 0.94,
     "runner_up_category": null,
-    "rationale": "Charge differs from contract rate, indicating a billing issue.",
-    "core_issue": "Invoice #8821 charged $1,240 instead of the contract rate $980/month.",
+    "rationale": "Charge differs from contract rate, indicating billing issue.",
+    "core_issue": "Invoice #8821 overcharged $260 above contract rate $980/month.",
     "identifiers": [
       {
         "type": "invoice_number",
@@ -85,10 +85,10 @@
     ],
     "dropped_identifiers": [],
     "urgency": {
-      "level": "low",
+      "level": "medium",
       "evidence": null
     },
-    "summary": "The customer reports that invoice #8821 shows a charge of $1,240, which exceeds their contract rate of $980/month. This discrepancy affects their billing and needs investigation. Billing team should verify the invoice and correct the amount.",
+    "summary": "The customer reports that invoice #8821 shows a charge of $1,240, which exceeds their contract rate of $980/month. This discrepancy affects their billing and needs investigation. Billing team should verify the invoice and correct the overcharge.",
     "intended_queue": "Billing",
     "destination_queue": "Billing",
     "escalated": false,
@@ -98,22 +98,22 @@
   },
   {
     "id": "sample-4",
-    "received_at": "2026-10-15T21:14:21.016Z",
+    "received_at": "2026-10-16T09:01:10.246Z",
     "source": "Email",
     "raw_message": "I'm not sure if this is the right place to ask, but is there a way to set up SSO with Okta? We're evaluating switching our auth provider.",
     "category": "Technical Question",
     "priority": "Low",
-    "confidence": 0.84,
+    "confidence": 0.88,
     "runner_up_category": "Feature Request",
-    "rationale": "Asks if SSO with Okta is possible, a how‑to question, not a broken feature.",
-    "core_issue": "Customer wants to know if SSO with Okta can be set up.",
+    "rationale": "Asks if SSO with Okta is possible, a how‑to question.",
+    "core_issue": "Customer wants to know if SSO can be set up with Okta.",
     "identifiers": [],
     "dropped_identifiers": [],
     "urgency": {
-      "level": "low",
-      "evidence": "is there a way to set up SSO with Okta"
+      "level": "none",
+      "evidence": null
     },
-    "summary": "The customer is asking whether ArcVault supports SSO integration with Okta as they evaluate switching their authentication provider. No account or billing impact is mentioned. Technical team should confirm SSO capabilities and provide guidance.",
+    "summary": "The customer is evaluating a switch to Okta and asks whether ArcVault supports SSO integration with Okta. No specific account or error is mentioned. The team should respond with information on SSO capabilities and setup steps.",
     "intended_queue": "IT/Security",
     "destination_queue": "IT/Security",
     "escalated": false,
@@ -123,15 +123,15 @@
   },
   {
     "id": "sample-5",
-    "received_at": "2026-10-15T21:14:23.639Z",
+    "received_at": "2026-10-16T09:01:14.604Z",
     "source": "Web Form",
     "raw_message": "Your dashboard stopped loading for us around 2pm EST. Checked our end — it's definitely on yours. Multiple users affected.",
     "category": "Incident/Outage",
     "priority": "High",
-    "confidence": 0.94,
+    "confidence": 0.95,
     "runner_up_category": "Bug Report",
-    "rationale": "Dashboard down for multiple users, indicates service-wide issue",
-    "core_issue": "Dashboard stopped loading for multiple users.",
+    "rationale": "Dashboard down for multiple users, indicates service-wide issue.",
+    "core_issue": "Dashboard stopped loading around 2pm EST.",
     "identifiers": [
       {
         "type": "other",
@@ -143,7 +143,7 @@
       "level": "high",
       "evidence": "Multiple users affected"
     },
-    "summary": "The customer reports that their dashboard stopped loading around 2pm EST and that multiple users are impacted. They believe the issue is on ArcVault's side. The team should investigate the outage and restore dashboard functionality.",
+    "summary": "The customer reports that their dashboard stopped loading around 2pm EST and multiple users are affected. They have confirmed the issue is on our side. Engineering needs to investigate and restore dashboard functionality promptly.",
     "intended_queue": "Engineering",
     "destination_queue": "Human Review",
     "escalated": true,
